@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Admin Panel</h2>
+
+<form method="POST" action="/admin/add">
+    <input name="name" placeholder="Event Name">
+    <input name="date" type="date">
+    <input name="venue" placeholder="Venue">
+    <button>Add Event</button>
+</form>
+
+<table>
+<tr>
+<th>Name</th><th>Date</th><th>Venue</th><th>Action</th>
+</tr>
+
+{% for e in events %}
+<tr>
+<td>{{ e.name }}</td>
+<td>{{ e.date }}</td>
+<td>{{ e.venue }}</td>
+<td><a href="/admin/delete/{{ e.id }}">Delete</a></td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}
