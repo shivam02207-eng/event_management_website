@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>All Events</h2>
+
+<input type="text" id="search" placeholder="Search events..." onkeyup="searchEvent()">
+
+<div class="grid">
+{% for e in events %}
+<div class="card">
+    <h3>{{ e.name }}</h3>
+    <p>Date: {{ e.date }}</p>
+    <p>Venue: {{ e.venue }}</p>
+    <p>RSVP: {{ e.rsvp }}</p>
+    <a href="/register">Register</a>
+</div>
+{% endfor %}
+</div>
+
+<script src="/static/js/script.js"></script>
+
+{% endblock %}
